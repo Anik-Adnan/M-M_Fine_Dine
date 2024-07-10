@@ -1,4 +1,4 @@
-# M-M_Fine_Dine
+# M&M_Fine_Dine
 # Restaurant Management System
 # Overview
 The Restaurant Management System is a comprehensive application developed using Flutter. It facilitates a seamless dining experience by enabling customers to add and order food using a QR code, browse the menu, and make payments online or choose cash on delivery, and provide feedback on their experience. The app is available for download on both the App Store and Google Play Store. Additionally, managers can manage the menu, create offers, and apply discounts.
