@@ -11,12 +11,13 @@ The Restaurant Management System is a comprehensive application developed using 
 - **Payment Options:** Choose between online payment and cash on delivery.
 - **App Availability:** Download the app from the App Store and Google Play Store.
 - **View Customer Feedback:** Managers can view customer ratings and feedback to improve services.
-Manager Features.
+# Manager Features
 - **Add Food Item:** Managers can add new food items to the menu.
 - **Delete Food Item:** Managers can remove food items from the menu.
 - **Create Offers:** Managers can create special offers and hot deals.
 - **Platter Packages:** Managers can set up platter packages with discounts.
 - **Promocode Management:** Managers can create and manage promocodes for discounts.
+- **View Customer Feedback:** Managers can view customer ratings and feedback to improve services.
 
 # Usage
 # Customer Usage
