@@ -1,5 +1,6 @@
 
 
+import 'package:fine_dine/homepage/my_offer_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -33,7 +34,7 @@ class _HomePageState  extends State<HomePage>{
               IconButton(onPressed: (){}, icon: Icon(Icons.photo)),
             ],
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset('assets/files/images/plates-of-food-on-a-table-with-lights-in-the-background.jpg',
+              background: Image.asset('assets/images/plates-of-food-on-a-table-with-lights-in-the-background.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -41,10 +42,10 @@ class _HomePageState  extends State<HomePage>{
           const SliverToBoxAdapter(
             child: SizedBox(
               height: 20,
-              child: Center(
-                child: Text('Scroll to see the SliverAppBar in effect.'),
-              ),
             ),
+          ),
+          SliverToBoxAdapter(
+            child: MyOfferSlider(),
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
@@ -64,59 +65,6 @@ class _HomePageState  extends State<HomePage>{
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: OverflowBar(
-            overflowAlignment: OverflowBarAlignment.center,
-            children: <Widget>[
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const Text('pinned'),
-                  Switch(
-                    onChanged: (bool val) {
-                      setState(() {
-                        _pinned = val;
-                      });
-                    },
-                    value: _pinned,
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const Text('snap'),
-                  Switch(
-                    onChanged: (bool val) {
-                      setState(() {
-                        _snap = val;
-                        // Snapping only applies when the app bar is floating.
-                        _floating = _floating || _snap;
-                      });
-                    },
-                    value: _snap,
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  const Text('floating'),
-                  Switch(
-                    onChanged: (bool val) {
-                      setState(() {
-                        _floating = val;
-                        _snap = _snap && _floating;
-                      });
-                    },
-                    value: _floating,
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
