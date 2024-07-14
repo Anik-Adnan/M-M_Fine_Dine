@@ -47,6 +47,17 @@ class _HomePageState  extends State<HomePage>{
           SliverToBoxAdapter(
             child: MyOfferSlider(),
           ),
+          SliverToBoxAdapter(
+              child: Container(
+                height: 25.0,
+                color: Colors.deepPurple,
+                child: Column(
+                  children: [
+                    Text('Our Food Menu',style: TextStyle(color: Colors.white,fontSize: 15.0,fontWeight: FontWeight.bold),)
+                  ],
+                ),
+              ),
+          ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
