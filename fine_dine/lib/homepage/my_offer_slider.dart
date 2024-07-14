@@ -11,18 +11,42 @@ class MyOfferSlider extends StatefulWidget {
   State<MyOfferSlider> createState() => _MyOfferSliderState();
 }
 class _MyOfferSliderState extends State<MyOfferSlider>{
-   var myOfferFoodItems = [
-    Image.asset('assets/images/a-plate-of-pasta-and-broccoli-on-a-table.jpg'),
-   Image.asset('assets/images/bbq-summer-party.jpg'),
-   Image.asset('assets/images/freshly-brewed-coffee-in-a-frothy-mug-generated.jpg'),
-   Image.asset('assets/images/the-grilled-bbq-on-the-grill.jpg'),
-   Image.asset('assets/images/spaghetti-with-tomato-sauce-and-cheese-on-a-wooden-table.jpg')];
+   final List<String> myOfferFoodItems = [
+    'assets/images/a-plate-of-pasta-and-broccoli-on-a-table.jpg',
+   'assets/images/bbq-summer-party.jpg',
+   'assets/images/freshly-brewed-coffee-in-a-frothy-mug-generated.jpg',
+   'assets/images/the-grilled-bbq-on-the-grill.jpg',
+   'assets/images/spaghetti-with-tomato-sauce-and-cheese-on-a-wooden-table.jpg'];
   int myCurrentIndex = 0;
+
+   void addFoodItem(String newItem) {
+     setState(() {
+       myOfferFoodItems.add(newItem);
+     });
+   }
+
+   void removeFoodItem(int index) {
+     setState(() {
+       myOfferFoodItems.removeAt(index);
+     });
+   }
   @override
   Widget build(BuildContext context) {
     return  Column(
             children: [
-              CarouselSlider(
+              CarouselSlider.builder(
+                itemCount: myOfferFoodItems.length,
+                itemBuilder: (context,index,realIndex){
+                  final item = myOfferFoodItems[index];
+                  return GestureDetector(
+                    // onTap: Navigator.pushNamed(),
+                    child: Image.asset(
+                        item,
+                      fit: BoxFit.fill,
+                      width: double.infinity,
+                    ),
+                  );
+                },
                 options: CarouselOptions(
                   height: 200,
                 aspectRatio: 1.5,
@@ -32,30 +56,12 @@ class _MyOfferSliderState extends State<MyOfferSlider>{
                 autoPlayCurve: Curves.fastOutSlowIn,
                   autoPlayAnimationDuration: const Duration(milliseconds: 800),
                   autoPlayInterval: const Duration(seconds: 2),
-                  onPageChanged: (index,reason){
-                    setState(() {
-                      myCurrentIndex = index;
-                    });
-                  },
+                  // onPageChanged: (index,reason){
+                  //   setState(() {
+                  //     myCurrentIndex = index;
+                  //   });
+                  // },
                 ),
-                items: myOfferFoodItems,
-                //     .map((item) {
-                //   return Builder(
-                //     builder: (BuildContext context) {
-                //       return Container(
-                //         width: MediaQuery.of(context).size.width,
-                //         margin: EdgeInsets.symmetric(horizontal: 5.0),
-                //         decoration: BoxDecoration(
-                //           color: Colors.red,
-                //         ),
-                //         child: Image.asset(
-                //           'assets/images/$item',
-                //           fit: BoxFit.cover,
-                //         ),
-                //       );
-                //     },
-                //   );
-                // }).toList(),
               ),
       
               Padding(
